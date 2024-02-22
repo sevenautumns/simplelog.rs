@@ -210,7 +210,7 @@ where
 {
     let id = format!("{:?}", thread::current().id());
     let id = id.replace("ThreadId(", "");
-    let id = id.replace(")", "");
+    let id = id.replace(')', "");
     match config.thread_padding {
         ThreadPadding::Left { 0: qty } => {
             write!(write, "({id:>0$}) ", qty, id = id)?;

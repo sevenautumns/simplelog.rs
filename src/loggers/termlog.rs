@@ -20,20 +20,18 @@ struct OutputStreams {
 
 /// Specifies which streams should be used when logging
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
+#[derive(Default)]
 pub enum TerminalMode {
     /// Only use Stdout
     Stdout,
     /// Only use Stderr
     Stderr,
     /// Use Stderr for Errors and Stdout otherwise
+    #[default]
     Mixed,
 }
 
-impl Default for TerminalMode {
-    fn default() -> TerminalMode {
-        TerminalMode::Mixed
-    }
-}
+
 
 /// The TermLogger struct. Provides a stderr/out based Logger implementation
 ///
